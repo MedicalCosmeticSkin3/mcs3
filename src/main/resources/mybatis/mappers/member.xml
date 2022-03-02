@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mcs.member.dao.MemberDAO">
+	<resultMap id="memResult" type="memberVO">
+		<result property="member_id" column="member_id" />
+		<result property="member_pw" column="member_pw" />
+		<result property="deli_num" column="deli_num" />
+		<result property="gender" column="gender" />
+		<result property="phone" column="phone" />
+		<result property="email" column="email" />
+		<result property="confirm" column="confirm" />
+		<result property="name" column="name" />
+		<result property="birth" column="birth" />
+		<result property="pw_find" column="pw_find" />
+		<result property="pw_answer" column="pw_answer" />
+		<result property="mileage" column="mileage" />
+		<result property="admin" column="admin" />
+	</resultMap>
+
+	<select id="selectBoardList" resultMap="memResult">
+    <![CDATA[
+       SELECT * FROM MEMBER
+      ]]>
+	</select>
+	
+	<select id="loginById" resultMap="memResult" parameterType="memberVO">
+		<![CDATA[
+			select * from member
+			where member_id = #{member_id} and member_pw = #{member_pw}
+		]]>]
+	</select>
+	
+</mapper>
